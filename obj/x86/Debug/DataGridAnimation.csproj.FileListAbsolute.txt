@@ -198,3 +198,17 @@ C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\Multip
 C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637425031200000000.json
 C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\.winmd_cache\$Telerik.UI.Drawing.winmd_637565166920000000.json
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.dll
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.pdb
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.dll
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.pdb
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.dll
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.pdb
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.Animations.dll
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.Animations.pdb
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.Behaviors.dll
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\bin\x86\Debug\Microsoft.Toolkit.Uwp.UI.Behaviors.pdb
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\Microsoft.Toolkit.Uwp.pri.xml
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.pri.xml
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.Animations.pri.xml
+C:\Users\jennifer.pyle\source\gitProjects\DataGridAnimation\obj\x86\Debug\Microsoft.Toolkit.Uwp.UI.Behaviors.pri.xml

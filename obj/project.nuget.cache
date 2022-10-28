@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P+e4rfFMkSeJ9Td2S7MpnD5xYqax8+uc01KwFM6omDBrBSY1rJ9TBEf+OjXR4gLcwXCfGo9dcXoYjuSnIdZ7GA==",
+  "dgSpecHash": "npkMSNh2RVhWb96a3+7IW10tDCbdYxVORy3W6aP0D8hNDU9F6f8FjDuRcby+lQ85z0/adg7Y+xz9E+mMOya8Nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jennifer.pyle\\source\\gitProjects\\DataGridAnimation\\DataGridAnimation.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,11 @@
     "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.2.12\\microsoft.net.uwpcoreruntimesdk.2.2.12.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.netcore.universalwindowsplatform\\6.2.12\\microsoft.netcore.universalwindowsplatform.6.2.12.nupkg.sha512",
+    "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit\\7.1.2\\microsoft.toolkit.7.1.2.nupkg.sha512",
+    "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit.uwp\\7.1.2\\microsoft.toolkit.uwp.7.1.2.nupkg.sha512",
+    "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit.uwp.ui\\7.1.2\\microsoft.toolkit.uwp.ui.7.1.2.nupkg.sha512",
+    "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit.uwp.ui.animations\\7.1.2\\microsoft.toolkit.uwp.ui.animations.7.1.2.nupkg.sha512",
+    "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit.uwp.ui.behaviors\\7.1.2\\microsoft.toolkit.uwp.ui.behaviors.7.1.2.nupkg.sha512",
     "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.toolkit.uwp.ui.controls.datagrid\\7.0.2\\microsoft.toolkit.uwp.ui.controls.datagrid.7.0.2.nupkg.sha512",
     "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.ui.xaml\\2.5.0\\microsoft.ui.xaml.2.5.0.nupkg.sha512",
     "C:\\Users\\jennifer.pyle\\.nuget\\packages\\microsoft.xaml.behaviors.uwp.managed\\2.0.1\\microsoft.xaml.behaviors.uwp.managed.2.0.1.nupkg.sha512",

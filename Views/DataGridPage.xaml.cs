@@ -6,7 +6,10 @@ using System.Runtime.CompilerServices;
 using DataGridAnimation.Core.Models;
 using DataGridAnimation.Core.Services;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using Microsoft.Toolkit.Uwp.UI.Controls.Primitives;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace DataGridAnimation.Views
@@ -20,6 +23,7 @@ namespace DataGridAnimation.Views
         public DataGridPage()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -120,6 +124,50 @@ namespace DataGridAnimation.Views
                     column.SortDirection = sortDirection;
                 }
             }
+        }
+
+        public bool ToggleValue { get; set; }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            SampleOrder newOrder = new SampleOrder();
+            newOrder.OrderDate = DateTime.Now;
+            newOrder.OrderTotal = 0;
+            newOrder.SymbolCode = 57619;
+            newOrder.Status = "Pending";
+            newOrder.ShipTo = "Beverly Hills, CA";
+            newOrder.Company = "Thermo Fisher Scientific";
+            Source.Add(newOrder);
+        }
+
+        public int PresenterHeight
+        {
+            get { return (int)GetValue(PresenterHeightProperty); }
+            set { SetValue(PresenterHeightProperty, value); }
+        }
+
+        public static readonly DependencyProperty PresenterHeightProperty = DependencyProperty.Register(
+            nameof(PresenterHeight), typeof(int), typeof(DataGridPage), new PropertyMetadata(50));
+
+        private void CellsPresenter_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+            var x = sender as DataGridCellsPresenter;
+            if (ToggleValue)
+            {
+                x.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
+                PresenterHeight = 10;
+            }
+            else
+            {
+                x.Background = new SolidColorBrush(Windows.UI.Colors.MediumVioletRed);
+                PresenterHeight = 50;
+            }
+            ToggleValue = !ToggleValue;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Source.RemoveAt(0);
         }
     }
 }
