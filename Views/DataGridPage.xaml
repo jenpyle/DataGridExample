@@ -17,30 +17,178 @@
     mc:Ignorable="d">
     <StackPanel x:Name="ContentArea" Margin="{StaticResource SmallLeftRightMargin}">
         <StackPanel.Resources>
+            <Style TargetType="localprimitives:DataGridColumnHeader">
+                <Setter Property="Foreground" Value="DeepPink" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="IsTabStop" Value="False" />
+                <Setter Property="SeparatorBrush" Value="Black" />
+                <Setter Property="Padding" Value="12,0,0,0" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="MinHeight" Value="32" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="localprimitives:DataGridColumnHeader">
+                            <Grid x:Name="ColumnHeaderRoot">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Rectangle
+                                    x:Name="BackgroundRectangle"
+                                    Grid.ColumnSpan="2"
+                                    Fill="Transparent"
+                                    Stretch="Fill" />
+
+                                <Grid
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" MinWidth="32" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentPresenter
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Content}" />
+
+                                    <Button Background="Yellow" Click="Button_Click_2">
+                                        <FontIcon
+                                            x:Name="SortIcon"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            FontSize="12"
+                                            Foreground="Black"
+                                            Glyph="&#59210;"
+                                            Opacity="0" />
+                                        <!--<interactivity:Interaction.Behaviors>
+                                            <interactions:EventTriggerBehavior EventName="Click">
+                                        -->
+                                        <!--<behaviors:StartAnimationAction Animation="{Binding Path ElementName=MoveAnimation3}" />-->
+                                        <!--
+                                                <behaviors:StartAnimationAction Animation="{Binding Path, RelativeSource=}" />
+                                            </interactions:EventTriggerBehavior>
+                                        </interactivity:Interaction.Behaviors>-->
+                                    </Button>
+                                </Grid>
+                                <Rectangle
+                                    x:Name="VerticalSeparator"
+                                    Grid.Column="1"
+                                    Width="1"
+                                    VerticalAlignment="Stretch"
+                                    Fill="{TemplateBinding SeparatorBrush}"
+                                    Visibility="{TemplateBinding SeparatorVisibility}" />
+
+                                <Grid
+                                    x:Name="FocusVisual"
+                                    IsHitTestVisible="False"
+                                    Opacity="0">
+                                    <Rectangle
+                                        x:Name="FocusVisualPrimary"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Fill="Transparent"
+                                        IsHitTestVisible="False"
+                                        Stroke="Blue"
+                                        StrokeThickness="2" />
+                                    <Rectangle
+                                        x:Name="FocusVisualSecondary"
+                                        Margin="2"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Fill="Transparent"
+                                        IsHitTestVisible="False"
+                                        Stroke="Black"
+                                        StrokeThickness="1" />
+                                </Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BackgroundRectangle"
+                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                    To="PapayaWhip"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="PointerOver">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BackgroundRectangle"
+                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                    To="LightCoral"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="BackgroundRectangle"
+                                                    Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                    To="PaleVioletRed"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Unfocused" />
+                                        <VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="FocusVisual"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="1"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="SortStates">
+                                        <VisualState x:Name="Unsorted" />
+                                        <VisualState x:Name="SortAscending">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="SortIcon"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="1"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="SortDescending">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="SortIcon"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="1"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                            <VisualState.Setters>
+                                                <Setter Target="SortIcon.Glyph" Value="&#59210;" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style TargetType="local:DataGridRow">
                 <Setter Property="IsTabStop" Value="False" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="local:DataGridRow">
+
                             <localprimitives:DataGridFrozenGrid
                                 x:Name="RowRoot"
                                 BorderBrush="YellowGreen"
                                 BorderThickness="3">
-                                <!--<localprimitives:DataGridFrozenGrid.TranslationTransition>
-                                    <Vector3Transition />
-                                </localprimitives:DataGridFrozenGrid.TranslationTransition>-->
-                                <!--<localprimitives:DataGridFrozenGrid.ChildrenTransitions>
-                                    <TransitionCollection>
-                                        <AddDeleteThemeTransition />
-                                    </TransitionCollection>
-                                </localprimitives:DataGridFrozenGrid.ChildrenTransitions>-->
-
-                                <localprimitives:DataGridFrozenGrid.Transitions>
-                                    <TransitionCollection>
-                                        <ContentThemeTransition />
-                                    </TransitionCollection>
-                                </localprimitives:DataGridFrozenGrid.Transitions>
-
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
@@ -68,22 +216,24 @@
                                 <localprimitives:DataGridCellsPresenter
                                     x:Name="CellsPresenter"
                                     Grid.Column="1"
-                                    Height="{Binding PresenterHeight}"
+                                    MinHeight="32"
                                     localprimitives:DataGridFrozenGrid.IsFrozen="True"
                                     AutomationProperties.AccessibilityView="Raw"
-                                    DoubleTapped="CellsPresenter_DoubleTapped">
-                                    <!--<localprimitives:DataGridCellsPresenter.BackgroundTransition>
-                                        <BrushTransition />
-                                    </localprimitives:DataGridCellsPresenter.BackgroundTransition>
+                                    DoubleTapped="CellsPresenter_DoubleTapped"
+                                    Opacity="1">
+                                    <localprimitives:DataGridCellsPresenter.Transitions>
+                                        <TransitionCollection>
+                                            <EntranceThemeTransition />
+                                        </TransitionCollection>
+                                    </localprimitives:DataGridCellsPresenter.Transitions>
+
                                     <localprimitives:DataGridCellsPresenter.ChildrenTransitions>
                                         <TransitionCollection>
-                                            <EntranceThemeTransition IsStaggeringEnabled="True" />
+                                            <EntranceThemeTransition />
                                         </TransitionCollection>
-                                    </localprimitives:DataGridCellsPresenter.ChildrenTransitions>-->
-                                    <!--<localprimitives:DataGridCellsPresenter.ScaleTransition>
-                                        <Vector3Transition />
-                                    </localprimitives:DataGridCellsPresenter.ScaleTransition>-->
+                                    </localprimitives:DataGridCellsPresenter.ChildrenTransitions>
                                 </localprimitives:DataGridCellsPresenter>
+
                                 <localprimitives:DataGridDetailsPresenter
                                     x:Name="DetailsPresenter"
                                     Grid.Row="1"
@@ -198,7 +348,7 @@
                 AutoGenerateColumns="False"
                 CanUserSortColumns="True"
                 GridLinesVisibility="Horizontal"
-                ItemsSource="{x:Bind Source, Mode=OneWay}"
+                ItemsSource="{x:Bind SourceDP, Mode=TwoWay}"
                 Sorting="DataGridSorting">
 
                 <local:DataGrid.Columns>
@@ -243,17 +393,92 @@
         </Grid>
         <StackPanel Orientation="Horizontal">
             <Button
-                Width="200"
-                Height="200"
+                Width="100"
+                Height="100"
                 Background="PapayaWhip"
                 Click="Button_Click"
                 Content="Add item" />
             <Button
-                Width="200"
-                Height="200"
+                Width="100"
+                Height="100"
                 Background="LightSeaGreen"
                 Click="Button_Click_1"
-                Content="Delete item" />
+                Content="Remove item" />
+            <Button
+                Width="100"
+                Height="100"
+                Background="Red"
+                Click="Button_Click_3"
+                Content="UpdateContents" />
+            <!--<Button
+                Width="100"
+                Height="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="LightCoral">
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="MoveAnimation" IsSequential="True">
+
+                        <ani:TranslationAnimation
+                            From="0,0,0"
+                            To="0,32,0"
+                            Duration="0:0:3" />
+                        <ani:StartAnimationActivity Animation="{Binding ElementName=FadeOutAnimation}" Delay="0:0:3" />
+                        <ani:StartAnimationActivity Animation="{Binding ElementName=FadeInAnimation}" Delay="0:0:3" />
+                        <ani:TranslationAnimation
+                            From="0,32,0"
+                            To="0,0,0"
+                            Duration="0:0:1" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+                <TextBlock
+                    Width="100"
+                    Height="100"
+                    Text="Start Animation">
+                    <ani:Explicit.Animations>
+                        <ani:AnimationSet x:Name="FadeOutAnimation">
+                            <ani:OpacityAnimation
+                                Delay="0"
+                                EasingMode="EaseOut"
+                                EasingType="Linear"
+                                From="1"
+                                To="0"
+                                Duration="0:0:1" />
+                        </ani:AnimationSet>
+                        <ani:AnimationSet x:Name="FadeInAnimation">
+                            <ani:OpacityAnimation
+                                Delay="0"
+                                EasingMode="EaseOut"
+                                EasingType="Linear"
+                                From="0"
+                                To="1"
+                                Duration="0:0:1" />
+                        </ani:AnimationSet>
+                    </ani:Explicit.Animations>
+                </TextBlock>
+                <interactivity:Interaction.Behaviors>
+                    <interactions:EventTriggerBehavior EventName="Click">
+                        <behaviors:StartAnimationAction Animation="{Binding ElementName=MoveAnimation}" />
+                    </interactions:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </Button>-->
+            <Button
+                Width="50"
+                Height="50"
+                Click="Button_Click_2"
+                Content="Clear" />
+            <Button
+                Width="100"
+                Height="100"
+                Background="PapayaWhip"
+                Click="Button_Click_4"
+                Content="Refill" />
+            <Button
+                Width="100"
+                Height="100"
+                Background="PapayaWhip"
+                Click="Button_Click_5"
+                Content="Refill replace" />
         </StackPanel>
     </StackPanel>
 </Page>
